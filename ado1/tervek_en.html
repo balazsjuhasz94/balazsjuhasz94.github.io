@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>További tervek – Juhász Balázs</title>
+  <title>Future Plans – Balázs Juhász</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Georgia', serif; font-size: 1rem; line-height: 1.75; color: #222; background: #fff; }
@@ -50,9 +50,9 @@
 <body>
 
   <nav>
-    <a class="nav-name" href="../index.html">Juhász Balázs</a>
+    <a class="nav-name" href="../index.html">Balázs Juhász</a>
     <div class="lang-switch">
-      <a href="tervek_en.html" aria-label="English">
+      <a href="tervek_en.html" class="active" aria-label="English">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
           <rect width="60" height="30" fill="#012169"/>
           <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
@@ -63,7 +63,7 @@
         </svg>
       </a>
       <span>/</span>
-      <a href="../index_hu.html" class="active" aria-label="Magyar">
+      <a href="tervek.html" aria-label="Magyar">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
           <rect width="9" height="2" y="0" fill="#CE2939"/>
           <rect width="9" height="2" y="2" fill="#fff"/>
@@ -76,23 +76,23 @@
   <main>
     <div class="page-layout">
       <aside class="page-sidebar">
-        <a class="back-link" href="../index_hu.html">← Főoldal</a>
+        <a class="back-link" href="../index.html">← Home</a>
 
         <ul class="page-links">
-          <li><a href="projekt.html">A projekt leírása</a></li>
-          <li><a href="promptok.html">A használt promptok</a></li>
-          <li><a href="tervek.html" class="active">További tervek</a></li>
+          <li><a href="projekt_en.html">About the Project</a></li>
+          <li><a href="promptok_en.html">Prompts Used</a></li>
+          <li><a href="tervek_en.html" class="active">Future Plans</a></li>
         </ul>
       </aside>
 
       <article class="page-content">
-        <h1>További tervek</h1>
-        <p>Néhány ötlet a későbbi esetleges továbbfejlesztésre:</p>
+        <h1>Future Plans</h1>
+        <p>A few ideas for potential future improvements:</p>
         <ul>
-          <li><strong>Angol verzió</strong> — külföldi nálunk élők számára, meg mert fun. (Szervezeti célok és minden más fordítása LLM-mel.)</li>
-          <li><strong>Szervezetek weboldala</strong> — lehetséges lenne az interneten automatikusan utánakeresni a szervezetek weboldalait, és automatikusan kattinthatóvá tenni azokat. Továbbgondolva, valahogy az is érdekes lenne, ha minél transzparensebben elérhető lenne egy helyre összegyűjtve a szervezetek tevékenysége.</li>
-          <li><strong>Kizárt szervezetek elemzése</strong> — 960 olyan szervezet van, aki nem tudott elszámolni tavaly a felajánlásokkal, ők idén kizárásra kerültek. Érdekes lenne trendeket keresni, mely kategóriákban a leggyakoribbak.</li>
-          <li><strong>Az összes szervezet lefedése</strong> — Jelenleg az egész analízis 10 000 szervezet alapján megy a 37 000-ből. A kimaradók olyan szervezetek, melyeket tipikusan kevesebb, mint 20 ember választotta. Főként nagyon lokális tevékenységű szervezetek ezek, de érdekes lenne látni egyszer a képet egészben. Persze a vizualizálhatóságnak vannak korlátai. Nem lenne túl költséges végigiterálni a kimaradókon, nagyjából 10–12 ezer Ft-ba kerülne hasonló beállítás mellett.</li>
+          <li><strong>English version</strong> — for foreigners living in Hungary, and because it would be fun. (Translating organization goals and everything else with an LLM.)</li>
+          <li><strong>Organization websites</strong> — it would be possible to automatically search for organizations' websites online and make them clickable. Taking it further, it would be interesting to have a single transparent place where the activities of each organization are compiled and easily accessible.</li>
+          <li><strong>Analysis of excluded organizations</strong> — there are 960 organizations that failed to account for their donations last year and were therefore excluded this year. It would be interesting to find trends in which categories this is most common.</li>
+          <li><strong>Covering all organizations</strong> — the current analysis is based on 10,000 out of 37,000 organizations. The ones left out are typically chosen by fewer than 20 people — mostly very locally active organizations. It would be interesting to see the full picture one day. The visualization challenges are real, but it wouldn't be too costly to iterate over the remainder — roughly 10,000–12,000 HUF at similar settings.</li>
         </ul>
       </article>
     </div>

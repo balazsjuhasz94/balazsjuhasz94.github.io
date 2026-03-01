@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Project – Balázs Juhász</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; font-size: 1rem; line-height: 1.75; color: #222; background: #fff; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; border-bottom: 1px solid #e0e0e0; }
+    .nav-name { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.01em; color: #111; text-decoration: none; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
+    .lang-switch a { display: block; opacity: 0.4; transition: opacity 0.15s; text-decoration: none; line-height: 0; }
+    .lang-switch a:hover { opacity: 0.75; }
+    .lang-switch a.active { opacity: 1; }
+    .lang-switch svg { width: 28px; height: 18px; border-radius: 2px; border: 1px solid #ddd; display: block; }
+    .lang-switch span { color: #ddd; font-size: 0.8rem; }
+
+    main { max-width: 1150px; margin: 3.5rem auto; padding: 0 2rem; }
+
+    .page-layout { display: grid; grid-template-columns: 210px 1fr; gap: 0; align-items: start; }
+
+    .page-sidebar { padding-right: 2.5rem; position: sticky; top: 2rem; }
+    .page-sidebar .back-link { display: block; font-size: 0.82rem; color: #aaa; text-decoration: none; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ebebeb; }
+    .page-sidebar .back-link:hover { color: #555; }
+
+    .page-sidebar .toc-label { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; margin-bottom: 0.9rem; }
+
+    .page-sidebar .toc { list-style: none; }
+    .page-sidebar .toc li { position: relative; padding: 0.35rem 0 0.35rem 1rem; }
+    .page-sidebar .toc li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 2px; height: 100%;
+      background: #e8e8e8;
+      transition: background 0.2s;
+    }
+    .page-sidebar .toc li.active::before { background: #3a6ea5; }
+    .page-sidebar .toc li a {
+      font-size: 0.85rem; color: #999; text-decoration: none;
+      display: block; line-height: 1.35;
+      transition: color 0.2s;
+    }
+    .page-sidebar .toc li a:hover { color: #333; }
+    .page-sidebar .toc li.active a { color: #111; font-weight: bold; }
+
+    .page-sidebar .page-links { list-style: none; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #ebebeb; }
+    .page-sidebar .page-links li { padding: 0.25rem 0; }
+    .page-sidebar .page-links li a { font-size: 0.82rem; color: #aaa; text-decoration: none; }
+    .page-sidebar .page-links li a:hover { color: #555; }
+    .page-sidebar .page-links li a.active { color: #111; font-weight: bold; }
+
+    .page-content { padding-left: 3.5rem; border-left: 1px solid #e8e8e8; }
+    .page-content h1 { font-size: 1.75rem; font-weight: normal; color: #111; margin-bottom: 2.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
+    .page-content h2 { font-size: 1.05rem; font-weight: bold; color: #222; margin-top: 2.5rem; margin-bottom: 0.85rem; padding-top: 0.25rem; }
+    .page-content p { color: #333; margin-bottom: 0.9rem; }
+    .page-content ul, .page-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #333; }
+    .page-content li { margin-bottom: 0.4rem; }
+    .page-content a { color: #3a6ea5; text-decoration: none; }
+    .page-content a:hover { text-decoration: underline; }
+    .page-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+    .page-content th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid #e0e0e0; font-weight: bold; color: #222; }
+    .page-content td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #f0f0f0; color: #333; }
+    .page-content th:last-child, .page-content td:last-child { text-align: right; }
+
+    @media (max-width: 750px) {
+      nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      .page-layout { grid-template-columns: 1fr; }
+      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; margin-bottom: 2rem; }
+      .page-content { padding-left: 0; border-left: none; }
+      main { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="../index.html">Balázs Juhász</a>
+    <div class="lang-switch">
+      <a href="projekt_en.html" class="active" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L20,10 M40,20 L60,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M60,0 L40,10 M20,20 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
+      <span>/</span>
+      <a href="projekt.html" aria-label="Magyar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
+          <rect width="9" height="2" y="0" fill="#CE2939"/>
+          <rect width="9" height="2" y="2" fill="#fff"/>
+          <rect width="9" height="2" y="4" fill="#436F4D"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-layout">
+      <aside class="page-sidebar">
+        <a class="back-link" href="../index.html">← Home</a>
+
+        <p class="toc-label">Contents</p>
+        <ul class="toc">
+          <li data-section="introduction"><a href="#introduction">Introduction</a></li>
+          <li data-section="general"><a href="#general">General Information</a></li>
+          <li data-section="steps"><a href="#steps">Project Steps</a></li>
+          <li data-section="technical"><a href="#technical">Technical Details</a></li>
+          <li data-section="datasources"><a href="#datasources">Data Sources</a></li>
+        </ul>
+
+        <ul class="page-links">
+          <li><a href="projekt_en.html" class="active">About the Project</a></li>
+          <li><a href="promptok_en.html">Prompts Used</a></li>
+          <li><a href="tervek_en.html">Future Plans</a></li>
+        </ul>
+      </aside>
+
+      <article class="page-content">
+        <h1>About the Project</h1>
+
+        <h2 id="introduction">Introduction</h2>
+        <p>This is a hobby project that was essentially built over two weekends, using an entirely AI-written codebase — a practice nowadays known as "vibe coding".</p>
+        <p>The project's goal is to <strong>show the trends of 1% personal income tax donations made to civil organizations</strong>, and to <strong>give people a chance to browse and discover potential organizations</strong> to support.</p>
+        <p>The completed interactive visualizations are available at <a href="https://ado1stat.hu" target="_blank"><strong>ado1stat.hu</strong></a>.</p>
+        <p>The categorization of organizations was performed automatically using an LLM, based on the organizations' stated goals available on civil.info.hu.</p>
+
+        <h2 id="general">General Information</h2>
+        <p>In 2025, a total of <strong>20.3 billion HUF</strong> was donated to more than <strong>37,000 organizations</strong>.</p>
+        <p>The donations are distributed very unevenly among organizations:</p>
+        <ul>
+          <li>the top <strong>100</strong> organizations received <strong>34%</strong> of the total (7.0 billion HUF)</li>
+          <li>the top <strong>1,000</strong> organizations received <strong>59%</strong> (11.9 billion HUF)</li>
+          <li>the top <strong>5,000</strong> organizations received <strong>79%</strong> (15.9 billion HUF)</li>
+          <li>the top <strong>10,000</strong> organizations received <strong>88%</strong> (17.9 billion HUF)</li>
+        </ul>
+        <p>I ultimately selected the <strong>10,000 organizations with the most donations</strong>. This covers the vast majority of the total amount donated, and visualizing more data would not be very practical.</p>
+
+        <h2 id="steps">Project Steps</h2>
+        <ol>
+          <li>Automated data collection (scraping) from <a href="https://civil.info.hu" target="_blank">civil.info.hu</a> for the selected 10,000 organizations</li>
+          <li>Categorization of organizations using a properly prompted LLM (large language model)</li>
+          <li>Visualization of the collected data</li>
+          <li>Creating a website about the project</li>
+        </ol>
+        <p>An additional non-trivial part of the process was manually correcting occasionally miscategorized organizations — and even so, the result is not perfect. It is not always straightforward to assign an organization to a single category, as their profile may span multiple areas, and the categories themselves can overlap.</p>
+        <p>There was already some form of categorization available on <a href="https://civil.info.hu" target="_blank">civil.info.hu</a> — I initially wanted to use it, but the categories were not well separated, and the categorization itself was not accurate at all.</p>
+        <p>The full source code of the project is available on <a href="https://github.com/balazsjuhasz94/ado1stat" target="_blank">GitHub</a>.</p>
+
+        <h2 id="technical">Technical Details and Costs</h2>
+        <p>I'll try to explain this as clearly as possible.</p>
+        <p>I essentially <strong>never looked at the generated code</strong> and accepted every change automatically. In most cases the AI succeeded on the first try, but even when it didn't, <strong>no request ever required more than three iterations</strong>, regardless of complexity.</p>
+        <p>I used Anthropic's Claude products throughout the project.</p>
+        <p>I subscribed to <strong>Claude Pro</strong> (€25.4/month), which gives access to the <strong>Claude Code</strong> AI assistant.</p>
+        <p>When used intensively without wanting to wait for rate limits, there are additional usage fees — I ended up spending an extra €48 in tokens.</p>
+        <p>Additionally, the categorization of organizations required calling Claude's model via API within a script. The cost is calculated based on the number of tokens used. I used approximately 12 million input tokens and 200,000 output tokens, which came to <strong>$12.29</strong>. In practice, this means I prepared (or rather, had prepared) a suitable prompt describing the model's task. You can find the prompt on the <a href="promptok_en.html">Prompts Used</a> page.</p>
+        <p>The categorization worked quite well. The only category that seemed to need improvement was education, where the specific type of school often couldn't be determined from the goal description alone. There is also an option to let the model search the internet when uncertain. I used this slightly more expensive approach for the ~3,000 education-related foundations, which cost a total of <strong>$15.39</strong>.</p>
+        <p>Even after all this, some miscategorizations are possible; when this happened for a large organization, I corrected it manually. In total, I manually changed fewer than 10 categorizations.</p>
+        <p>For the AI assistant I used <strong>Sonnet 4.5</strong>, which is recommended for this type of work and is not the most expensive model. For categorization I used the cheapest <strong>Haiku</strong> model, which was reliably capable of assigning organizations to the predefined categories based on their goal descriptions and a suitable introductory prompt.</p>
+        <p>For visualization I used the Python <strong>plotly</strong> library, which I have used many times before for interactive visualizations. Interactivity is provided by the accompanying <strong>dash</strong> package.</p>
+        <p>For the website itself, I first had to register the domain name, which costs 2,527 HUF per year (for a .hu domain) through Tárhely.eu. Hosting is handled through a cloud provider, with the server costing <strong>€3.49/month</strong>. If more than ~100 people wanted to browse the site simultaneously, a larger server would be needed.</p>
+        <p>I had very little experience with web hosting, but it went smoothly with Claude Code's help.</p>
+
+        <p>A summary of the <strong>project costs</strong>:</p>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude Pro subscription</td><td>€25.4 (~9,680 HUF)</td></tr>
+            <tr><td>Claude Pro intensive usage</td><td>€48.2 (~18,293 HUF)</td></tr>
+            <tr><td>Claude API calls for categorization</td><td>$12.29 (~3,970 HUF)</td></tr>
+            <tr><td>Claude API + web search (education)</td><td>$15.39 (~4,947 HUF)</td></tr>
+            <tr><td>Server rental</td><td>€3.49/mo (~1,330 HUF)</td></tr>
+            <tr><td>Domain registration</td><td>2,527 HUF (1st year)</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>~40,750 HUF</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="datasources">Data Sources</h2>
+        <p>All data used is <strong>publicly available</strong> on the internet:</p>
+        <ul>
+          <li><strong><a href="https://nav.gov.hu/ado/szja1_1/kimutatasok_elszamolasok/civil-szervezetek/egyszaz_kiut_2025/kozlemeny-a-2025.-evben-szja-1-os-felajanlasban-reszesult-civil-kedvezmenyezettekrol" target="_blank">NAV public data, 2025</a></strong> — the list of civil organizations that received 1% personal income tax donations</li>
+          <li><strong><a href="https://civil.info.hu" target="_blank">civil.info.hu</a></strong> — Basic organization data (location, stated goals) and their share of donations in prior years</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll('.page-content h2[id]');
+    const tocItems = document.querySelectorAll('.page-sidebar .toc li');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocItems.forEach(li => li.classList.remove('active'));
+          const active = document.querySelector(`.toc li[data-section="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

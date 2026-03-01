@@ -11,28 +11,54 @@
     .nav-name { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.01em; color: #111; text-decoration: none; }
     .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
     .lang-switch a { display: block; opacity: 0.4; transition: opacity 0.15s; text-decoration: none; line-height: 0; }
-    .lang-switch a:hover { opacity: 0.75; text-decoration: none; }
+    .lang-switch a:hover { opacity: 0.75; }
     .lang-switch a.active { opacity: 1; }
     .lang-switch svg { width: 28px; height: 18px; border-radius: 2px; border: 1px solid #ddd; display: block; }
     .lang-switch span { color: #ddd; font-size: 0.8rem; }
-    main { max-width: 900px; margin: 3.5rem auto; padding: 0 2rem; }
-    .page-layout { display: grid; grid-template-columns: 190px 1fr; gap: 0; align-items: start; }
-    .page-sidebar { border-right: 1px solid #e0e0e0; padding-right: 2rem; position: sticky; top: 2rem; }
-    .page-sidebar .back-link { display: block; font-size: 0.85rem; color: #999; text-decoration: none; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #e8e8e8; }
+
+    main { max-width: 1150px; margin: 3.5rem auto; padding: 0 2rem; }
+
+    .page-layout { display: grid; grid-template-columns: 210px 1fr; gap: 0; align-items: start; }
+
+    /* Left sidebar */
+    .page-sidebar { padding-right: 2.5rem; position: sticky; top: 2rem; }
+    .page-sidebar .back-link { display: block; font-size: 0.82rem; color: #aaa; text-decoration: none; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ebebeb; }
     .page-sidebar .back-link:hover { color: #555; }
-    .page-sidebar .site-link { display: block; font-size: 0.85rem; color: #3a6ea5; text-decoration: none; margin-bottom: 1.25rem; }
-    .page-sidebar .site-link:hover { text-decoration: underline; }
-    .page-sidebar h2 { font-size: 0.8rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-bottom: 0.75rem; }
-    .page-sidebar ul { list-style: none; }
-    .page-sidebar ul li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; }
-    .page-sidebar ul li:last-child { border-bottom: none; }
-    .page-sidebar ul li a { font-size: 0.9rem; color: #555; text-decoration: none; display: block; line-height: 1.4; }
-    .page-sidebar ul li a:hover { color: #111; }
-    .page-sidebar ul li a.active { color: #111; font-weight: bold; }
-    .page-content { padding-left: 3rem; }
-    .page-content h1 { font-size: 1.7rem; font-weight: normal; color: #111; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
-    .page-content h2 { font-size: 1.1rem; font-weight: bold; color: #222; margin-top: 2rem; margin-bottom: 0.75rem; }
-    .page-content p { color: #333; margin-bottom: 0.85rem; }
+
+    .page-sidebar .toc-label { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; margin-bottom: 0.9rem; }
+
+    .page-sidebar .toc { list-style: none; }
+    .page-sidebar .toc li { position: relative; padding: 0.35rem 0 0.35rem 1rem; }
+    .page-sidebar .toc li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 2px; height: 100%;
+      background: #e8e8e8;
+      transition: background 0.2s;
+    }
+    .page-sidebar .toc li.active::before { background: #3a6ea5; }
+    .page-sidebar .toc li a {
+      font-size: 0.85rem; color: #999; text-decoration: none;
+      display: block; line-height: 1.35;
+      transition: color 0.2s;
+    }
+    .page-sidebar .toc li a:hover { color: #333; }
+    .page-sidebar .toc li.active a { color: #111; font-weight: bold; }
+
+    /* Page nav links (other subpages) */
+    .page-sidebar .page-links { list-style: none; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #ebebeb; }
+    .page-sidebar .page-links li { padding: 0.25rem 0; }
+    .page-sidebar .page-links li a { font-size: 0.82rem; color: #aaa; text-decoration: none; }
+    .page-sidebar .page-links li a:hover { color: #555; }
+    .page-sidebar .page-links li a.active { color: #111; font-weight: bold; }
+
+    /* Content */
+    .page-content { padding-left: 3.5rem; border-left: 1px solid #e8e8e8; }
+    .page-content h1 { font-size: 1.75rem; font-weight: normal; color: #111; margin-bottom: 2.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
+    .page-content h2 { font-size: 1.05rem; font-weight: bold; color: #222; margin-top: 2.5rem; margin-bottom: 0.85rem; padding-top: 0.25rem; }
+    .page-content p { color: #333; margin-bottom: 0.9rem; }
     .page-content ul, .page-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #333; }
     .page-content li { margin-bottom: 0.4rem; }
     .page-content a { color: #3a6ea5; text-decoration: none; }
@@ -41,11 +67,12 @@
     .page-content th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid #e0e0e0; font-weight: bold; color: #222; }
     .page-content td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #f0f0f0; color: #333; }
     .page-content th:last-child, .page-content td:last-child { text-align: right; }
-    @media (max-width: 700px) {
+
+    @media (max-width: 750px) {
       nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
-      .page-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; }
-      .page-content { padding-left: 0; }
+      .page-layout { grid-template-columns: 1fr; }
+      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; margin-bottom: 2rem; }
+      .page-content { padding-left: 0; border-left: none; }
       main { margin-top: 2rem; }
     }
   </style>
@@ -55,7 +82,7 @@
   <nav>
     <a class="nav-name" href="../index.html">Juhász Balázs</a>
     <div class="lang-switch">
-      <a href="../index.html" aria-label="English">
+      <a href="projekt_en.html" aria-label="English">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
           <rect width="60" height="30" fill="#012169"/>
           <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
@@ -80,11 +107,18 @@
     <div class="page-layout">
       <aside class="page-sidebar">
         <a class="back-link" href="../index_hu.html">← Főoldal</a>
-        <a class="site-link" href="https://ado1stat.hu" target="_blank">ado1stat.hu ↗</a>
-        <h2>Adó 1%</h2>
-        <ul>
+
+        <p class="toc-label">Tartalom</p>
+        <ul class="toc">
+          <li data-section="bevezetes"><a href="#bevezetes">Bevezetés</a></li>
+          <li data-section="altalanos"><a href="#altalanos">Általános információk</a></li>
+          <li data-section="lepesek"><a href="#lepesek">A projekt lépései</a></li>
+          <li data-section="technika"><a href="#technika">Technikai részletek</a></li>
+          <li data-section="adatforrasok"><a href="#adatforrasok">Adatforrások</a></li>
+        </ul>
+
+        <ul class="page-links">
           <li><a href="projekt.html" class="active">A projekt leírása</a></li>
-          <li><a href="gondolatok.html">Saját gondolatok</a></li>
           <li><a href="promptok.html">A használt promptok</a></li>
           <li><a href="tervek.html">További tervek</a></li>
         </ul>
@@ -93,14 +127,13 @@
       <article class="page-content">
         <h1>A projekt leírása</h1>
 
-        <h2>Adatforrások</h2>
-        <p>A felhasznált adatok <strong>bárki által elérhető</strong> adatok az interneten:</p>
-        <ul>
-          <li><strong><a href="https://nav.gov.hu/ado/szja1_1/kimutatasok_elszamolasok/civil-szervezetek/egyszaz_kiut_2025/kozlemeny-a-2025.-evben-szja-1-os-felajanlasban-reszesult-civil-kedvezmenyezettekrol" target="_blank">NAV nyilvános adatai, 2025</a></strong> — az SZJA 1%-os felajánlásban részesült civil kedvezményezettek listája</li>
-          <li><strong><a href="https://civil.info.hu" target="_blank">civil.info.hu</a></strong> — A szervezetek alapadatai (székhely, célkitűzés) és a felajánlásokból való részesedésük a korábbi évekből</li>
-        </ul>
+        <h2 id="bevezetes">Bevezetés</h2>
+        <p>Ez az oldal egy hobbiprojekt, mely lényegében két hétvége alatt készült el kizárólag AI által írt kódbázis segítségével — ezt manapság „vibe coding"-nak is nevezik.</p>
+        <p>A projekt célja, hogy <strong>bemutassa a civil szervezeteknek felajánlott adó 1% összegek trendjeit</strong>, és <strong>lehetőséget adjon az embereknek böngészni a lehetséges szervezetek között</strong>.</p>
+        <p>Az elkészült interaktív vizualizációk az <a href="https://ado1stat.hu" target="_blank"><strong>ado1stat.hu</strong></a> oldalon érhetők el.</p>
+        <p>A vizualizációkhoz a szervezetek kategorizálása automatikusan történt LLM segítségével, melyhez a civil.info.hu oldalon elérhető szervezetek célkitűzéseit vettem alapul.</p>
 
-        <h2>A projekt lépései</h2>
+        <h2 id="altalanos">Általános információk</h2>
         <p>2025-ben összesen <strong>20,3 mrd Ft-ot</strong> ajánlottak fel, összesen több mint <strong>37 ezer szervezetnek</strong>.</p>
         <p>A felajánlások összegei nagyon nem egyenletesen oszlanak el a szervezetek között:</p>
         <ul>
@@ -110,7 +143,8 @@
           <li>az első <strong>10 000</strong> szervezet az összeg <strong>88%-át</strong> (17,9 mrd Ft)</li>
         </ul>
         <p>A <strong>10 000 legtöbb felajánlást kapó szervezetet</strong> választottam végül ki. Ez lefedi a teljes felajánlott összeg zömét, másrészt ennél több adatot nem nagyon lehetne vizualizálni.</p>
-        <p>A projekt lépései:</p>
+
+        <h2 id="lepesek">A projekt lépései</h2>
         <ol>
           <li>Automatikus adatgyűjtés (scrape-elés) a <a href="https://civil.info.hu" target="_blank">civil.info.hu</a> oldalról a kiválasztott 10 000 szervezetről</li>
           <li>A szervezetek kategorizálása megfelelően meghívott (promptolt) LLM (nagy nyelvi modell) segítségével</li>
@@ -121,7 +155,7 @@
         <p>A <a href="https://civil.info.hu" target="_blank">civil.info.hu</a> oldalon elérhető volt egyébként egyfajta kategorizálás — először azt szerettem volna használni, de a kategóriák sem voltak túl jól szétbontva, és maga a kategorizálás sem volt pontos egyáltalán.</p>
         <p>A projekt teljes forráskódja elérhető a <a href="https://github.com/balazsjuhasz94/ado1stat" target="_blank">GitHubon</a>.</p>
 
-        <h2>Technikai részletek és költségek</h2>
+        <h2 id="technika">Technikai részletek és költségek</h2>
         <p>Igyekszem minél közérthetőbben leírni.</p>
         <p>Lényegében <strong>sosem néztem bele a generált kódba</strong>, és minden változtatást automatikusan elfogadtam. A legtöbb esetben elsőre sikerült megvalósítania az aktuális kérésemet, de ha elsőre nem is, <strong>sosem kellett háromnál többet iterálni</strong> bármilyen komplex kérés esetén sem.</p>
         <p>Az Anthropic cég Claude termékeit használtam a projekt során.</p>
@@ -150,9 +184,34 @@
             <tr><td><strong>Összesen</strong></td><td><strong>~40 750 Ft</strong></td></tr>
           </tbody>
         </table>
+
+        <h2 id="adatforrasok">Adatforrások</h2>
+        <p>A felhasznált adatok <strong>bárki által elérhető</strong> adatok az interneten:</p>
+        <ul>
+          <li><strong><a href="https://nav.gov.hu/ado/szja1_1/kimutatasok_elszamolasok/civil-szervezetek/egyszaz_kiut_2025/kozlemeny-a-2025.-evben-szja-1-os-felajanlasban-reszesult-civil-kedvezmenyezettekrol" target="_blank">NAV nyilvános adatai, 2025</a></strong> — az SZJA 1%-os felajánlásban részesült civil kedvezményezettek listája</li>
+          <li><strong><a href="https://civil.info.hu" target="_blank">civil.info.hu</a></strong> — A szervezetek alapadatai (székhely, célkitűzés) és a felajánlásokból való részesedésük a korábbi évekből</li>
+        </ul>
       </article>
     </div>
   </main>
+
+  <script>
+    // Scroll-spy: highlight current section in TOC
+    const sections = document.querySelectorAll('.page-content h2[id]');
+    const tocItems = document.querySelectorAll('.page-sidebar .toc li');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocItems.forEach(li => li.classList.remove('active'));
+          const active = document.querySelector(`.toc li[data-section="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
 </html>

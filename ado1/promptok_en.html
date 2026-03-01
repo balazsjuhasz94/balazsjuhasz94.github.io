@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompts Used – Balázs Juhász</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; font-size: 1rem; line-height: 1.75; color: #222; background: #fff; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; border-bottom: 1px solid #e0e0e0; }
+    .nav-name { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.01em; color: #111; text-decoration: none; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
+    .lang-switch a { display: block; opacity: 0.4; transition: opacity 0.15s; text-decoration: none; line-height: 0; }
+    .lang-switch a:hover { opacity: 0.75; }
+    .lang-switch a.active { opacity: 1; }
+    .lang-switch svg { width: 28px; height: 18px; border-radius: 2px; border: 1px solid #ddd; display: block; }
+    .lang-switch span { color: #ddd; font-size: 0.8rem; }
+
+    main { max-width: 1150px; margin: 3.5rem auto; padding: 0 2rem; }
+
+    .page-layout { display: grid; grid-template-columns: 210px 1fr; gap: 0; align-items: start; }
+
+    .page-sidebar { padding-right: 2.5rem; position: sticky; top: 2rem; }
+    .page-sidebar .back-link { display: block; font-size: 0.82rem; color: #aaa; text-decoration: none; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ebebeb; }
+    .page-sidebar .back-link:hover { color: #555; }
+
+    .page-sidebar .toc-label { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; margin-bottom: 0.9rem; }
+
+    .page-sidebar .toc { list-style: none; }
+    .page-sidebar .toc li { position: relative; padding: 0.35rem 0 0.35rem 1rem; }
+    .page-sidebar .toc li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 2px; height: 100%;
+      background: #e8e8e8;
+      transition: background 0.2s;
+    }
+    .page-sidebar .toc li.active::before { background: #3a6ea5; }
+    .page-sidebar .toc li a {
+      font-size: 0.85rem; color: #999; text-decoration: none;
+      display: block; line-height: 1.35;
+      transition: color 0.2s;
+    }
+    .page-sidebar .toc li a:hover { color: #333; }
+    .page-sidebar .toc li.active a { color: #111; font-weight: bold; }
+
+    .page-sidebar .page-links { list-style: none; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #ebebeb; }
+    .page-sidebar .page-links li { padding: 0.25rem 0; }
+    .page-sidebar .page-links li a { font-size: 0.82rem; color: #aaa; text-decoration: none; }
+    .page-sidebar .page-links li a:hover { color: #555; }
+    .page-sidebar .page-links li a.active { color: #111; font-weight: bold; }
+
+    .page-content { padding-left: 3.5rem; border-left: 1px solid #e8e8e8; }
+    .page-content h1 { font-size: 1.75rem; font-weight: normal; color: #111; margin-bottom: 2.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
+    .page-content h2 { font-size: 1.05rem; font-weight: bold; color: #222; margin-top: 2.5rem; margin-bottom: 0.85rem; padding-top: 0.25rem; }
+    .page-content p { color: #333; margin-bottom: 0.9rem; }
+    .page-content ul, .page-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #333; }
+    .page-content li { margin-bottom: 0.4rem; }
+    .page-content a { color: #3a6ea5; text-decoration: none; }
+    .page-content a:hover { text-decoration: underline; }
+    .page-content code { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; background: #f7f6f3; padding: 0.1em 0.3em; border-radius: 3px; }
+    .page-content pre { background: #f7f6f3; border: 1px solid #e8e4dc; border-radius: 4px; padding: 1.25rem; overflow-x: auto; margin: 1.25rem 0; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.82rem; line-height: 1.6; color: #333; white-space: pre-wrap; word-break: break-word; }
+    .page-content pre code { background: none; padding: 0; font-size: inherit; }
+    .translation-note { background: #f0f6ff; border: 1px solid #d0e0f0; border-radius: 6px; padding: 0.85rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #555; font-style: italic; }
+
+    @media (max-width: 750px) {
+      nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      .page-layout { grid-template-columns: 1fr; }
+      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; margin-bottom: 2rem; }
+      .page-content { padding-left: 0; border-left: none; }
+      main { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="../index.html">Balázs Juhász</a>
+    <div class="lang-switch">
+      <a href="promptok_en.html" class="active" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L20,10 M40,20 L60,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M60,0 L40,10 M20,20 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
+      <span>/</span>
+      <a href="promptok.html" aria-label="Magyar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
+          <rect width="9" height="2" y="0" fill="#CE2939"/>
+          <rect width="9" height="2" y="2" fill="#fff"/>
+          <rect width="9" height="2" y="4" fill="#436F4D"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-layout">
+      <aside class="page-sidebar">
+        <a class="back-link" href="../index.html">← Home</a>
+
+        <p class="toc-label">Contents</p>
+        <ul class="toc">
+          <li data-section="prompt"><a href="#prompt">The Categorization Prompt</a></li>
+          <li data-section="categories"><a href="#categories">Category Descriptions</a></li>
+        </ul>
+
+        <ul class="page-links">
+          <li><a href="projekt_en.html">About the Project</a></li>
+          <li><a href="promptok_en.html" class="active">Prompts Used</a></li>
+          <li><a href="tervek_en.html">Future Plans</a></li>
+        </ul>
+      </aside>
+
+      <article class="page-content">
+        <h1>Prompts Used</h1>
+
+        <p>This page shows the "question" the model was asked to answer during the automatic categorization of organizations. In simplified terms, the process is similar to asking ChatGPT something — but with a template where different data is substituted in each time, and the results are automatically run and saved. The model is also told exactly what format the answer should be in, which isn't guaranteed, but works reliably in practice.</p>
+        <p>The Claude Haiku model received the following text for each group of organizations.</p>
+        <p>Each batch asks the model to correctly categorize 10 organizations. This is because that number of records can still be held in context effectively at once.</p>
+        <p><code>{categories_text}</code> was replaced with the list of categories and their descriptions; <code>{orgs_text}</code> was replaced with organization data (name, location, stated goal).</p>
+
+        <div class="translation-note">
+          Note: The original categorization was run entirely in Hungarian. The prompts below are English translations provided for reference.
+        </div>
+
+        <h2 id="prompt">The Categorization Prompt</h2>
+
+        <pre><code>Categorize the Hungarian civil organizations based on their goals AND location.
+Choose EXACTLY ONE category for each organization from the options below.
+
+IMPORTANT RULES:
+- Read CAREFULLY each category's description
+- "FOCUS" in a category description means this is the PRIMARY activity,
+  not just a side aspect
+- The "Use if..." section tells you exactly when to choose that category
+- The "Does NOT include:" section helps avoid common mistakes
+- If uncertain, choose the "other..." category
+  within the appropriate main category
+
+{categories_text}
+
+ORGANIZATIONS:
+{orgs_text}
+
+ANSWER FORMAT - numbered list only, each line: number. category
+IMPORTANT: Write only the category NAME, not the parent category!
+
+Example:
+1. dogs
+2. high schools in Budapest
+3. hospice
+
+Your answer:</code></pre>
+
+        <h2 id="categories">Category Descriptions</h2>
+        <p><code>{categories_text}</code> contained the following categories and their descriptions:</p>
+
+        <pre><code>=== CULTURE AND ARTS ===
+
+• arts organizations
+  Use if the organization's FOCUS is art, culture.
+  Includes: music ensembles, theaters, painting, dance groups,
+  cultural events, arts education, galleries, exhibitions.
+
+• ethnic organizations
+  Use if the organization's FOCUS is ethnic or national minorities, peoples.
+  Includes: Roma, German, Croatian, Serbian minority organizations,
+  tradition preservation, folk dance, folk music groups, minority rights.
+
+• religious organizations
+  Use if the organization's FOCUS is spreading religious values.
+  Includes: church foundations, Bible programs, Christian/Jewish/Islamic
+  communities, religious programs, spiritual development.
+  Does NOT include: church-run social services (categorize those under social organizations).
+
+• other cultural organizations
+  Use if cultural activity, but doesn't fit any specific subcategory.
+  Includes: library support, community centers, cultural heritage preservation,
+  local history, museum support.
+
+=== HUMAN RIGHTS AND CIVIL SOCIETY ===
+
+• press, media
+  Use if the organization's FOCUS is press or media activity.
+  Includes: newspapers, online news portals, magazines, radio, television,
+  news services, journalism support, media freedom.
+  Does NOT include: organizations that merely send newsletters or have a website.
+
+• democracy and transparency
+  Use if the organization's FOCUS is strengthening democracy, developing civil society.
+  Includes: transparency, anti-corruption, election monitoring,
+  civic participation, open government, social dialogue.
+
+• women's rights organizations
+  Use if FOCUS is women's rights, gender equality.
+  Includes: women's equal opportunities, prevention of violence against women,
+  support for mothers, women's career development, women's social roles.
+
+• LGBTQ+ organizations
+  Use if FOCUS is LGBTQ+ community rights.
+  Includes: lesbian, gay, bisexual, transgender, queer communities,
+  gender identity, fighting discrimination based on sexual orientation.
+
+• other human rights organizations
+  Use if rights-focused, but not specific to women or LGBTQ+.
+  Includes: general human rights organizations, consumer protection,
+  workers' rights, tenants' rights, refugee rights, human rights monitoring.
+
+=== EDUCATION ===
+
+• high schools
+  Use if supporting a HIGH SCHOOL (foundation/association).
+
+• primary schools
+  Use if supporting a PRIMARY SCHOOL (8-year) (foundation/association).
+
+• kindergartens
+  Use if supporting a KINDERGARTEN (foundation/association).
+
+• other schools
+  Use if supporting OTHER EDUCATIONAL INSTITUTION (vocational school, dormitory, etc.).
+  Does NOT include: high schools, primary schools, kindergartens.
+
+• other educational organizations
+  Use if education-related, but NOT supporting a specific institution.
+  Includes: talent development, student competitions, scholarships, teacher training,
+  educational programs, textbooks, pedagogical methods, adult education.
+
+• scientific research
+  Use if FOCUS is scientific research, academic activity.
+  Does NOT include: support for public education institutions.
+
+=== ENVIRONMENT AND ANIMAL WELFARE ===
+
+• environmental and nature conservation
+• dogs
+• cats
+• birds
+• other specific animal species
+• zoos
+• other animal welfare
+
+=== SOCIAL ASSISTANCE ===
+
+• helping those in need
+• supporting disadvantaged children
+• child protection
+• organizations supporting family formation
+• helping people with disabilities
+• care for the elderly
+• emotional and social support for ill people
+• church-affiliated social organizations
+• mental health and addiction
+• community and local development
+
+=== DISASTER RELIEF AND PUBLIC SAFETY ===
+
+• national organizations
+• local rescue organizations
+• fire brigade associations
+• specialized rescue organizations
+
+=== ADULT HEALTHCARE ===
+
+• hospitals
+• women's health
+• cancer patient treatment
+• other adult healthcare
+
+=== CHILDREN'S HEALTHCARE ===
+
+• children's hospitals
+• emotional support for sick children
+• premature infants
+• diabetic children
+• children with leukemia or cancer
+• specific sick children
+• other children's healthcare
+
+=== SPORT AND LEISURE ===
+
+• sports clubs
+• hunting associations
+• fishing associations
+• cycling organizations
+• other leisure organizations</code></pre>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    const sections = document.querySelectorAll('.page-content h2[id]');
+    const tocItems = document.querySelectorAll('.page-sidebar .toc li');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocItems.forEach(li => li.classList.remove('active'));
+          const active = document.querySelector(`.toc li[data-section="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
