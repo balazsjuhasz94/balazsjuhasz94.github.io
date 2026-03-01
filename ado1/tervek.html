@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>További tervek – Juhász Balázs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; font-size: 1rem; line-height: 1.75; color: #222; background: #fff; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; border-bottom: 1px solid #e0e0e0; }
+    .nav-name { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.01em; color: #111; text-decoration: none; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
+    .lang-switch a { display: block; opacity: 0.4; transition: opacity 0.15s; text-decoration: none; line-height: 0; }
+    .lang-switch a:hover { opacity: 0.75; text-decoration: none; }
+    .lang-switch a.active { opacity: 1; }
+    .lang-switch svg { width: 28px; height: 18px; border-radius: 2px; border: 1px solid #ddd; display: block; }
+    .lang-switch span { color: #ddd; font-size: 0.8rem; }
+    main { max-width: 900px; margin: 3.5rem auto; padding: 0 2rem; }
+    .page-layout { display: grid; grid-template-columns: 190px 1fr; gap: 0; align-items: start; }
+    .page-sidebar { border-right: 1px solid #e0e0e0; padding-right: 2rem; position: sticky; top: 2rem; }
+    .page-sidebar .back-link { display: block; font-size: 0.85rem; color: #999; text-decoration: none; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #e8e8e8; }
+    .page-sidebar .back-link:hover { color: #555; }
+    .page-sidebar .site-link { display: block; font-size: 0.85rem; color: #3a6ea5; text-decoration: none; margin-bottom: 1.25rem; }
+    .page-sidebar .site-link:hover { text-decoration: underline; }
+    .page-sidebar h2 { font-size: 0.8rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-bottom: 0.75rem; }
+    .page-sidebar ul { list-style: none; }
+    .page-sidebar ul li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; }
+    .page-sidebar ul li:last-child { border-bottom: none; }
+    .page-sidebar ul li a { font-size: 0.9rem; color: #555; text-decoration: none; display: block; line-height: 1.4; }
+    .page-sidebar ul li a:hover { color: #111; }
+    .page-sidebar ul li a.active { color: #111; font-weight: bold; }
+    .page-content { padding-left: 3rem; }
+    .page-content h1 { font-size: 1.7rem; font-weight: normal; color: #111; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
+    .page-content h2 { font-size: 1.1rem; font-weight: bold; color: #222; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .page-content p { color: #333; margin-bottom: 0.85rem; }
+    .page-content ul, .page-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #333; }
+    .page-content li { margin-bottom: 0.6rem; }
+    .page-content a { color: #3a6ea5; text-decoration: none; }
+    .page-content a:hover { text-decoration: underline; }
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      .page-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; }
+      .page-content { padding-left: 0; }
+      main { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="../index.html">Juhász Balázs</a>
+    <div class="lang-switch">
+      <a href="../index.html" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L20,10 M40,20 L60,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M60,0 L40,10 M20,20 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
+      <span>/</span>
+      <a href="../index_hu.html" class="active" aria-label="Magyar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
+          <rect width="9" height="2" y="0" fill="#CE2939"/>
+          <rect width="9" height="2" y="2" fill="#fff"/>
+          <rect width="9" height="2" y="4" fill="#436F4D"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-layout">
+      <aside class="page-sidebar">
+        <a class="back-link" href="../index_hu.html">← Főoldal</a>
+        <a class="site-link" href="https://ado1stat.hu" target="_blank">ado1stat.hu ↗</a>
+        <h2>Adó 1%</h2>
+        <ul>
+          <li><a href="projekt.html">A projekt leírása</a></li>
+          <li><a href="gondolatok.html">Saját gondolatok</a></li>
+          <li><a href="promptok.html">A használt promptok</a></li>
+          <li><a href="tervek.html" class="active">További tervek</a></li>
+        </ul>
+      </aside>
+
+      <article class="page-content">
+        <h1>További tervek</h1>
+        <p>Néhány ötlet a későbbi esetleges továbbfejlesztésre:</p>
+        <ul>
+          <li><strong>Angol verzió</strong> — külföldi nálunk élők számára, meg mert fun. (Szervezeti célok és minden más fordítása LLM-mel.)</li>
+          <li><strong>Szervezetek weboldala</strong> — lehetséges lenne az interneten automatikusan utánakeresni a szervezetek weboldalait, és automatikusan kattinthatóvá tenni azokat. Továbbgondolva, valahogy az is érdekes lenne, ha minél transzparensebben elérhető lenne egy helyre összegyűjtve a szervezetek tevékenysége.</li>
+          <li><strong>Kizárt szervezetek elemzése</strong> — 960 olyan szervezet van, aki nem tudott elszámolni tavaly a felajánlásokkal, ők idén kizárásra kerültek. Érdekes lenne trendeket keresni, mely kategóriákban a leggyakoribbak.</li>
+          <li><strong>Az összes szervezet lefedése</strong> — Jelenleg az egész analízis 10 000 szervezet alapján megy a 37 000-ből. A kimaradók olyan szervezetek, melyeket tipikusan kevesebb, mint 20 ember választotta. Főként nagyon lokális tevékenységű szervezetek ezek, de érdekes lenne látni egyszer a képet egészben. Persze a vizualizálhatóságnak vannak korlátai. Nem lenne túl költséges végigiterálni a kimaradókon, nagyjából 10–12 ezer Ft-ba kerülne hasonló beállítás mellett.</li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+</body>
+</html>

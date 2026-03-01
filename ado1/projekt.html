@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A projekt leírása – Juhász Balázs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; font-size: 1rem; line-height: 1.75; color: #222; background: #fff; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; border-bottom: 1px solid #e0e0e0; }
+    .nav-name { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.01em; color: #111; text-decoration: none; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
+    .lang-switch a { display: block; opacity: 0.4; transition: opacity 0.15s; text-decoration: none; line-height: 0; }
+    .lang-switch a:hover { opacity: 0.75; text-decoration: none; }
+    .lang-switch a.active { opacity: 1; }
+    .lang-switch svg { width: 28px; height: 18px; border-radius: 2px; border: 1px solid #ddd; display: block; }
+    .lang-switch span { color: #ddd; font-size: 0.8rem; }
+    main { max-width: 900px; margin: 3.5rem auto; padding: 0 2rem; }
+    .page-layout { display: grid; grid-template-columns: 190px 1fr; gap: 0; align-items: start; }
+    .page-sidebar { border-right: 1px solid #e0e0e0; padding-right: 2rem; position: sticky; top: 2rem; }
+    .page-sidebar .back-link { display: block; font-size: 0.85rem; color: #999; text-decoration: none; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #e8e8e8; }
+    .page-sidebar .back-link:hover { color: #555; }
+    .page-sidebar .site-link { display: block; font-size: 0.85rem; color: #3a6ea5; text-decoration: none; margin-bottom: 1.25rem; }
+    .page-sidebar .site-link:hover { text-decoration: underline; }
+    .page-sidebar h2 { font-size: 0.8rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-bottom: 0.75rem; }
+    .page-sidebar ul { list-style: none; }
+    .page-sidebar ul li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; }
+    .page-sidebar ul li:last-child { border-bottom: none; }
+    .page-sidebar ul li a { font-size: 0.9rem; color: #555; text-decoration: none; display: block; line-height: 1.4; }
+    .page-sidebar ul li a:hover { color: #111; }
+    .page-sidebar ul li a.active { color: #111; font-weight: bold; }
+    .page-content { padding-left: 3rem; }
+    .page-content h1 { font-size: 1.7rem; font-weight: normal; color: #111; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
+    .page-content h2 { font-size: 1.1rem; font-weight: bold; color: #222; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .page-content p { color: #333; margin-bottom: 0.85rem; }
+    .page-content ul, .page-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #333; }
+    .page-content li { margin-bottom: 0.4rem; }
+    .page-content a { color: #3a6ea5; text-decoration: none; }
+    .page-content a:hover { text-decoration: underline; }
+    .page-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+    .page-content th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid #e0e0e0; font-weight: bold; color: #222; }
+    .page-content td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #f0f0f0; color: #333; }
+    .page-content th:last-child, .page-content td:last-child { text-align: right; }
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      .page-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; }
+      .page-content { padding-left: 0; }
+      main { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="../index.html">Juhász Balázs</a>
+    <div class="lang-switch">
+      <a href="../index.html" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L20,10 M40,20 L60,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M60,0 L40,10 M20,20 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
+      <span>/</span>
+      <a href="../index_hu.html" class="active" aria-label="Magyar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
+          <rect width="9" height="2" y="0" fill="#CE2939"/>
+          <rect width="9" height="2" y="2" fill="#fff"/>
+          <rect width="9" height="2" y="4" fill="#436F4D"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-layout">
+      <aside class="page-sidebar">
+        <a class="back-link" href="../index_hu.html">← Főoldal</a>
+        <a class="site-link" href="https://ado1stat.hu" target="_blank">ado1stat.hu ↗</a>
+        <h2>Adó 1%</h2>
+        <ul>
+          <li><a href="projekt.html" class="active">A projekt leírása</a></li>
+          <li><a href="gondolatok.html">Saját gondolatok</a></li>
+          <li><a href="promptok.html">A használt promptok</a></li>
+          <li><a href="tervek.html">További tervek</a></li>
+        </ul>
+      </aside>
+
+      <article class="page-content">
+        <h1>A projekt leírása</h1>
+
+        <h2>Adatforrások</h2>
+        <p>A felhasznált adatok <strong>bárki által elérhető</strong> adatok az interneten:</p>
+        <ul>
+          <li><strong><a href="https://nav.gov.hu/ado/szja1_1/kimutatasok_elszamolasok/civil-szervezetek/egyszaz_kiut_2025/kozlemeny-a-2025.-evben-szja-1-os-felajanlasban-reszesult-civil-kedvezmenyezettekrol" target="_blank">NAV nyilvános adatai, 2025</a></strong> — az SZJA 1%-os felajánlásban részesült civil kedvezményezettek listája</li>
+          <li><strong><a href="https://civil.info.hu" target="_blank">civil.info.hu</a></strong> — A szervezetek alapadatai (székhely, célkitűzés) és a felajánlásokból való részesedésük a korábbi évekből</li>
+        </ul>
+
+        <h2>A projekt lépései</h2>
+        <p>2025-ben összesen <strong>20,3 mrd Ft-ot</strong> ajánlottak fel, összesen több mint <strong>37 ezer szervezetnek</strong>.</p>
+        <p>A felajánlások összegei nagyon nem egyenletesen oszlanak el a szervezetek között:</p>
+        <ul>
+          <li>az első <strong>100</strong> legtöbb felajánlást kapó szervezet a teljes összeg <strong>34%-át</strong> kapta (7,0 mrd Ft)</li>
+          <li>az első <strong>1 000</strong> szervezet az összeg <strong>59%-át</strong> (11,9 mrd Ft)</li>
+          <li>az első <strong>5 000</strong> szervezet az összeg <strong>79%-át</strong> (15,9 mrd Ft)</li>
+          <li>az első <strong>10 000</strong> szervezet az összeg <strong>88%-át</strong> (17,9 mrd Ft)</li>
+        </ul>
+        <p>A <strong>10 000 legtöbb felajánlást kapó szervezetet</strong> választottam végül ki. Ez lefedi a teljes felajánlott összeg zömét, másrészt ennél több adatot nem nagyon lehetne vizualizálni.</p>
+        <p>A projekt lépései:</p>
+        <ol>
+          <li>Automatikus adatgyűjtés (scrape-elés) a <a href="https://civil.info.hu" target="_blank">civil.info.hu</a> oldalról a kiválasztott 10 000 szervezetről</li>
+          <li>A szervezetek kategorizálása megfelelően meghívott (promptolt) LLM (nagy nyelvi modell) segítségével</li>
+          <li>Az összegyűjtött adatok vizualizációja</li>
+          <li>Weboldal létrehozása a projektről</li>
+        </ol>
+        <p>További nem elhanyagolható része volt a folyamatnak az olykor félrekategorizált szervezetek kézzel való javítása, ami így sem tökéletes. Nem feltétlenül egyértelmű bekategorizálni a szervezeteket konkrét csoportokba, hiszen a profiljuk nem feltétlenül szűkíthető le egy kategóriára, illetve néhol a kategóriák is összefedhetnek.</p>
+        <p>A <a href="https://civil.info.hu" target="_blank">civil.info.hu</a> oldalon elérhető volt egyébként egyfajta kategorizálás — először azt szerettem volna használni, de a kategóriák sem voltak túl jól szétbontva, és maga a kategorizálás sem volt pontos egyáltalán.</p>
+        <p>A projekt teljes forráskódja elérhető a <a href="https://github.com/balazsjuhasz94/ado1stat" target="_blank">GitHubon</a>.</p>
+
+        <h2>Technikai részletek és költségek</h2>
+        <p>Igyekszem minél közérthetőbben leírni.</p>
+        <p>Lényegében <strong>sosem néztem bele a generált kódba</strong>, és minden változtatást automatikusan elfogadtam. A legtöbb esetben elsőre sikerült megvalósítania az aktuális kérésemet, de ha elsőre nem is, <strong>sosem kellett háromnál többet iterálni</strong> bármilyen komplex kérés esetén sem.</p>
+        <p>Az Anthropic cég Claude termékeit használtam a projekt során.</p>
+        <p>Előfizettem a <strong>Claude Pro</strong>-ra (25,4 € / hónap), mellyel a <strong>Claude Code</strong> AI asszisztenst használtam.</p>
+        <p>Ha ezt intenzíven használja az ember és nem akar várni, akkor rá kell fizetni egy keveset — így én még elhasználtam további 48 €-nyi tokent.</p>
+        <p>Emellett a szervezetek kategorizálásához szükségem volt arra, hogy API-n keresztül, egy programkódon belül hívjam meg a Claude modelljét. Ennek a költségét az elhasznált tokenek száma alapján számolják. ~12 millió bemeneti tokent és 200 ezer kimeneti tokent használtam, ami <strong>12,29 $-ba</strong> került. Ez a gyakorlatban úgy néz ki, hogy egy megfelelő szöveget előkészítettem (vagyis inkább előkészíttettem), hogy mi lesz a feladata a modellnek. A szöveget a <a href="promptok.html">A használt promptok</a> oldalon megtalálod.</p>
+        <p>A kategorizálás elég jól működött. Egyedül az oktatás kategória tűnt javítandónak, ott sok esetben a megfelelő iskola típusa nem igazán derült ki a cél leírásából. Lehetőség van arra is, hogy a modell használja az internetet, ha bizonytalan. Így erre a ~3000 oktatást segítő alapítványra meghívtam ezt a kicsit költségesebb módot, mely összesen <strong>15,39 $</strong>-ba került.</p>
+        <p>Persze ezek után is lehetségesek félrekategorizált szervezetek, ha nagyon nagy szervezet esetén ilyen történt, akkor azt kézzel orvosoltam. Összesen kézzel kevesebb, mint 10 kategorizálást változtattam meg.</p>
+        <p>Az AI asszisztensnél a <strong>Sonnet 4.5</strong>-öt használtam, amely ajánlott erre a célra, és nem a legdrágább. A kategorizáláshoz a legolcsóbb, <strong>Haiku</strong> modellt használtam, hiszen ez is elég megbízhatóan képes volt a szervezetek céljainak leírása és a megfelelő bevezető szöveg alapján besorolni az előre elkészített kategóriák közé a szervezeteket.</p>
+        <p>A vizualizációhoz a Pythonos <strong>plotly</strong> csomagot használtam, amit már sokszor vettem segítségül interaktív vizualizálásra. Az interaktivitást az ehhez ajánlott <strong>dash</strong> csomag adja.</p>
+        <p>A weboldal létrehozásához egyrészt a webcím domainjét kellett regisztrálni, mely 1 évre 2 527 Ft (.hu-s webcím esetén) a Tárhely.eu oldalon intézve. Másrészt a weboldal hostolását egy felhőszolgáltatón keresztül intéztem, amely szerver bérlése havonta <strong>3,49 €-ba</strong> kerül. Ha egyszerre több mint 100-an akarnák böngészni az oldalt, akkor szükséges lenne egy nagyobb szerverre váltani.</p>
+        <p>Az ilyen webhelyes dolgokhoz legkevésbé sem értek, de pofon egyszerűen ment Claude Code segítségével.</p>
+
+        <p>Összesítve a <strong>projekt költségei</strong>:</p>
+        <table>
+          <thead>
+            <tr><th>Tétel</th><th>Költség</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude Pro előfizetés</td><td>25,4 € (~9 680 Ft)</td></tr>
+            <tr><td>Claude Pro intenzív használat</td><td>48,2 € (~18 293 Ft)</td></tr>
+            <tr><td>Claude API hívás kategorizáláshoz</td><td>12,29 $ (~3 970 Ft)</td></tr>
+            <tr><td>Claude API + web search (oktatás)</td><td>15,39 $ (~4 947 Ft)</td></tr>
+            <tr><td>Szerver bérlése az oldalhoz</td><td>3,49 €/hó (~1 330 Ft)</td></tr>
+            <tr><td>Web domain megvétele</td><td>2 527 Ft (1. évre)</td></tr>
+            <tr><td><strong>Összesen</strong></td><td><strong>~40 750 Ft</strong></td></tr>
+          </tbody>
+        </table>
+      </article>
+    </div>
+  </main>
+
+</body>
+</html>

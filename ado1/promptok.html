@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A használt promptok – Juhász Balázs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; font-size: 1rem; line-height: 1.75; color: #222; background: #fff; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; border-bottom: 1px solid #e0e0e0; }
+    .nav-name { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.01em; color: #111; text-decoration: none; }
+    .lang-switch { display: flex; align-items: center; gap: 0.5rem; }
+    .lang-switch a { display: block; opacity: 0.4; transition: opacity 0.15s; text-decoration: none; line-height: 0; }
+    .lang-switch a:hover { opacity: 0.75; text-decoration: none; }
+    .lang-switch a.active { opacity: 1; }
+    .lang-switch svg { width: 28px; height: 18px; border-radius: 2px; border: 1px solid #ddd; display: block; }
+    .lang-switch span { color: #ddd; font-size: 0.8rem; }
+    main { max-width: 900px; margin: 3.5rem auto; padding: 0 2rem; }
+    .page-layout { display: grid; grid-template-columns: 190px 1fr; gap: 0; align-items: start; }
+    .page-sidebar { border-right: 1px solid #e0e0e0; padding-right: 2rem; position: sticky; top: 2rem; }
+    .page-sidebar .back-link { display: block; font-size: 0.85rem; color: #999; text-decoration: none; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #e8e8e8; }
+    .page-sidebar .back-link:hover { color: #555; }
+    .page-sidebar .site-link { display: block; font-size: 0.85rem; color: #3a6ea5; text-decoration: none; margin-bottom: 1.25rem; }
+    .page-sidebar .site-link:hover { text-decoration: underline; }
+    .page-sidebar h2 { font-size: 0.8rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-bottom: 0.75rem; }
+    .page-sidebar ul { list-style: none; }
+    .page-sidebar ul li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; }
+    .page-sidebar ul li:last-child { border-bottom: none; }
+    .page-sidebar ul li a { font-size: 0.9rem; color: #555; text-decoration: none; display: block; line-height: 1.4; }
+    .page-sidebar ul li a:hover { color: #111; }
+    .page-sidebar ul li a.active { color: #111; font-weight: bold; }
+    .page-content { padding-left: 3rem; }
+    .page-content h1 { font-size: 1.7rem; font-weight: normal; color: #111; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid #e8e8e8; }
+    .page-content h2 { font-size: 1.1rem; font-weight: bold; color: #222; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .page-content p { color: #333; margin-bottom: 0.85rem; }
+    .page-content ul, .page-content ol { margin: 0.5rem 0 1rem 1.5rem; color: #333; }
+    .page-content li { margin-bottom: 0.4rem; }
+    .page-content a { color: #3a6ea5; text-decoration: none; }
+    .page-content a:hover { text-decoration: underline; }
+    .page-content code { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.9em; background: #f7f6f3; padding: 0.1em 0.3em; border-radius: 3px; }
+    .page-content pre { background: #f7f6f3; border: 1px solid #e8e4dc; border-radius: 4px; padding: 1.25rem; overflow-x: auto; margin: 1.25rem 0; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.82rem; line-height: 1.6; color: #333; white-space: pre-wrap; word-break: break-word; }
+    .page-content pre code { background: none; padding: 0; font-size: inherit; }
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      .page-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .page-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; position: static; }
+      .page-content { padding-left: 0; }
+      main { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="../index.html">Juhász Balázs</a>
+    <div class="lang-switch">
+      <a href="../index.html" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L20,10 M40,20 L60,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M60,0 L40,10 M20,20 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
+      <span>/</span>
+      <a href="../index_hu.html" class="active" aria-label="Magyar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
+          <rect width="9" height="2" y="0" fill="#CE2939"/>
+          <rect width="9" height="2" y="2" fill="#fff"/>
+          <rect width="9" height="2" y="4" fill="#436F4D"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-layout">
+      <aside class="page-sidebar">
+        <a class="back-link" href="../index_hu.html">← Főoldal</a>
+        <a class="site-link" href="https://ado1stat.hu" target="_blank">ado1stat.hu ↗</a>
+        <h2>Adó 1%</h2>
+        <ul>
+          <li><a href="projekt.html">A projekt leírása</a></li>
+          <li><a href="gondolatok.html">Saját gondolatok</a></li>
+          <li><a href="promptok.html" class="active">A használt promptok</a></li>
+          <li><a href="tervek.html">További tervek</a></li>
+        </ul>
+      </aside>
+
+      <article class="page-content">
+        <h1>A használt promptok</h1>
+
+        <p>Ezen az oldalon az látható, hogy amikor a szervezetek automatikus kategorizálása történt, akkor milyen „kérdésre" kellett válaszolnia a modellnek. Leegyszerűsítve az történik, mintha a ChatGPT-től kérdeznénk, de úgy, hogy elkészítünk egy vázat, hogy mi lesz a kérdés, amibe más és más adatot helyettesítünk be, és automatikusan futtatjuk ezt majd mentjük el az eredményeket. Felhívjuk a figyelmét, hogy pontosan milyen alakban várjuk a választ, ami persze nem garantált, hogy úgy is lesz, de jó eséllyel igen.</p>
+        <p>Az alábbi szöveget kapta meg a Claude Haiku modell minden egyes szervezet csoportnál.</p>
+        <p>Minden lépésben 10 szervezet helyes kategorizálását kérjük a modelltől. Ennek oka, hogy ennyi adatra még hatékonyan tud emlékezni egyszerre.</p>
+        <p>A <code>{categories_text}</code> helyére a kategóriák és leírásaik kerültek, az <code>{orgs_text}</code> helyére pedig a szervezetek adatai (név, székhely, célkitűzés).</p>
+
+        <pre><code>Kategorizáld a magyar civil szervezeteket a céljuk ÉS székhelyük alapján.
+Válassz PONTOSAN EGY kategóriát minden szervezethez a lenti lehetőségek közül.
+
+FONTOS SZABÁLYOK:
+- Olvasd el FIGYELMESEN minden kategória leírását
+- A kategória leírásában a "FÓKUSZA" azt jelenti, hogy ez a FŐDOLOG,
+  nem csak mellékesen foglalkoznak vele
+- A "Használd, ha..." rész pontosan megmondja, mikor válaszd azt a kategóriát
+- A "NEM ide tartozik" rész segít elkerülni a tévesztést
+- Ha bizonytalan vagy, válaszd az "egyéb..." kategóriát
+  a megfelelő főkategórián belül
+
+{categories_text}
+
+SZERVEZETEK:
+{orgs_text}
+
+VÁLASZ FORMÁTUM - csak számozott lista, minden sorban: szám. kategória
+FONTOS: Csak a kategória NEVÉT írd, ne a szülő kategóriát!
+
+Példa:
+1. kutyák
+2. budapesti gimnáziumok
+3. hospice
+
+A te válaszod:</code></pre>
+
+        <p>A <code>{categories_text}</code> az alábbi kategóriákat és leírásaikat tartalmazta:</p>
+
+        <pre><code>=== KULTÚRA ÉS MŰVÉSZET ===
+
+• művészeti szervezetek
+  Használd, ha a szervezet FÓKUSZA művészet, kultúra.
+  Ide tartozik: zenei együttesek, színházak, festészet, tánccsoportok,
+  kulturális rendezvények, művészeti oktatás, galériák, kiállítások.
+
+• etnikai szervezetek
+  Használd, ha a szervezet FÓKUSZA etnikai, nemzeti kisebbségek, népcsoportok.
+  Ide tartozik: roma, német, horvát, szerb nemzetiségi szervezetek,
+  hagyományőrzés, néptánc, népzenei csoportok, kisebbségi jogok.
+
+• vallási szervezetek
+  Használd, ha a szervezet FÓKUSZA vallási értékek terjesztése.
+  Ide tartozik: egyházi alapítványok, bibliai programok, keresztény/zsidó/iszlám
+  közösségek, hitéleti programok, lelkiségi fejlesztés.
+  NEM ide tartozik: egyházi szociális tevékenység (azt szociális szervezeteknél jelöld).
+
+• egyéb kulturális szervezetek
+  Használd, ha kulturális tevékenység, de egyik specifikus alkategóriába sem illik.
+  Ide tartozik: könyvtári támogatás, közösségi házak, kulturális örökség megőrzése,
+  helytörténet, múzeumok támogatása.
+
+=== EMBERI JOGOK ÉS CIVIL TÁRSADALOM ===
+
+• sajtó, média
+  Használd ezt a címkét, ha a szervezet FÓKUSZA sajtó vagy média tevékenység.
+  Ide tartozik: újságok, online hírportálok, magazinok, rádió, televízió,
+  hírszolgáltatás, újságírás támogatása, média szabadság.
+  NEM ide tartozik: ha csak mellesleg írnak hírleveleket vagy van weboldaluk.
+  Ide tartozik a Partizán.
+
+• demokrácia és átláthatóság
+  Használd, ha a szervezet FÓKUSZA demokrácia erősítése, civil társadalom fejlesztése.
+  Ide tartozik: átláthatóság, anti-korrupció, választási megfigyelés,
+  állampolgári részvétel, nyílt kormányzás, társadalmi párbeszéd.
+
+• nőjogi szervezetek
+  Használd, ha FÓKUSZA nők jogai, nők egyenlősége.
+  Ide tartozik: női esélyegyenlőség, nők ellen irányuló erőszak megelőzése,
+  anyák támogatása, női karrierfejlesztés, nők társadalmi szerepe.
+
+• LMBTQ+ szervezetek
+  Használd, ha FÓKUSZA LMBTQ+ közösség jogai.
+  Ide tartozik: leszbikus, meleg, biszexuális, transznemű, queer közösségek,
+  nemi identitás, szexuális orientáció alapú diszkrimináció elleni küzdelem.
+
+• egyéb jogvédő szervezetek
+  Használd, ha jogvédő tevékenység, de nem nő- vagy LMBTQ-specifikus.
+  Ide tartozik: általános emberi jogi szervezetek, fogyasztóvédelem,
+  munkavállalói jogok, bérlők jogai, menekültek jogai, emberi jogi monitoring.
+
+=== OKTATÁS ===
+
+• gimnáziumok
+  Használd, ha GIMNÁZIUM támogató alapítvány/egyesület.
+
+• általános iskolák
+  Használd, ha ÁLTALÁNOS ISKOLA (8 osztályos) támogató alapítvány/egyesület.
+
+• óvodák
+  Használd, ha ÓVODA támogató alapítvány/egyesület.
+
+• egyéb iskolák
+  Használd, ha EGYÉB OKTATÁSI INTÉZMÉNY (szakiskola, kollégium, stb.).
+  NEM ide tartozik: gimnáziumok, általános iskolák, óvodák.
+
+• egyéb oktatási szervezetek
+  Használd, ha oktatási célú, de NEM konkrét intézmény támogatója.
+  Ide tartozik: tehetséggondozás, diákversenyek, ösztöndíjak, tanári továbbképzés,
+  oktatási programok, tankönyvek, pedagógiai módszertan, felnőttképzés.
+
+• tudományos kutatás
+  Használd, ha FÓKUSZA tudományos kutatás, akadémiai tevékenység.
+  NEM ide tartozik: közoktatási intézmények támogatása.
+
+=== KÖRNYEZET- ÉS ÁLLATVÉDELEM ===
+
+• környezet- és természetvédelem
+• kutyák
+• macskák
+• madarak
+• más konkrét állatfajok
+• állatkertek
+• egyéb állatvédelem
+
+=== SZOCIÁLIS SEGÍTSÉGNYÚJTÁS ===
+
+• rászorulók segítése
+• hátrányos helyzetű gyerekek támogatása
+• gyermekvédelem
+• családalapítást segítő szervezetek
+• fogyatékkal élők segítése
+• idősek gondozása
+• beteg emberek lelki és szociális támogatása
+• egyházhoz kötődő szociális szervezetek
+• mentális egészség és szenvedélybetegségek
+• települési és közösségfejlesztés
+
+=== KATASZTRÓFAVÉDELEM ÉS KÖZBIZTONSÁG ===
+
+• országos szervezetek
+• helyi mentő szervezetek
+• tűzoltó egyesületek
+• speciális mentőszervezetek
+
+=== FELNŐTT EGÉSZSÉGÜGY ===
+
+• kórházak
+• női egészségügy
+• daganatos betegek gyógyítása
+• egyéb felnőtt egészségügy
+
+=== GYERMEK EGÉSZSÉGÜGY ===
+
+• gyermekkórházak
+• beteg gyerekek lelki segítése
+• koraszülöttek
+• cukorbeteg gyerekek
+• leukémiás és daganatos gyerekek
+• konkrét beteg gyerekek
+• egyéb gyermek egészségügy
+
+=== SPORT ÉS SZABADIDŐ ===
+
+• sportklubok
+• vadásztársaságok
+• horgászegyesületek
+• kerékpáros szervezetek
+• egyéb szabadidős szervezetek</code></pre>
+      </article>
+    </div>
+  </main>
+
+</body>
+</html>
