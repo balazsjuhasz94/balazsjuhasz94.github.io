@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juhász Balázs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #222;
+      background: #fff;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lang-switch a {
+      display: block;
+      opacity: 0.4;
+      transition: opacity 0.15s;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .lang-switch a:hover {
+      opacity: 0.75;
+      text-decoration: none;
+    }
+
+    .lang-switch a.active {
+      opacity: 1;
+    }
+
+    .lang-switch svg {
+      width: 28px;
+      height: 18px;
+      border-radius: 2px;
+      border: 1px solid #ddd;
+      display: block;
+    }
+
+    .lang-switch span {
+      color: #ddd;
+      font-size: 0.8rem;
+    }
+
+    /* ── Main content ── */
+    main {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 260px 1fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    .left img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .right h1 {
+      font-size: 1.9rem;
+      font-weight: normal;
+      color: #111;
+      margin-bottom: 1.75rem;
+    }
+
+    .right p {
+      color: #333;
+      margin-bottom: 0.85rem;
+    }
+
+    .left {
+      padding-right: 2.5rem;
+    }
+
+    .right {
+      padding-left: 2.5rem;
+      border-left: 1px solid #e0e0e0;
+    }
+
+    /* ── Social icons ── */
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .social-links a {
+      color: #888;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s;
+    }
+
+    .social-links a:hover {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      border-right: 1px solid #e0e0e0;
+      padding-right: 2rem;
+    }
+
+    .sidebar h2 {
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.9rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .sidebar ul li:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar ul li a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidebar ul li a:hover {
+      color: #111;
+      text-decoration: underline;
+    }
+
+    a {
+      color: #3a6ea5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 760px) {
+      nav { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+      .layout { grid-template-columns: 1fr; gap: 2rem; }
+      .left img { width: 60%; margin: 0 auto; aspect-ratio: 1 / 1; border-radius: 50%; }
+      .sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; padding-right: 0; padding-bottom: 1.25rem; }
+      .left { padding-right: 0; }
+      .right { border-left: none; padding-left: 0; }
+      main { margin-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="#">Juhász Balázs</a>
+    <div class="lang-switch">
+      <a href="index.html" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+          <rect width="60" height="30" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L20,10 M40,20 L60,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M60,0 L40,10 M20,20 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
+      <span>/</span>
+      <a href="index_hu.html" class="active" aria-label="Magyar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6">
+          <rect width="9" height="2" y="0" fill="#CE2939"/>
+          <rect width="9" height="2" y="2" fill="#fff"/>
+          <rect width="9" height="2" y="4" fill="#436F4D"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Projektek</h2>
+        <ul>
+          <li><a href="#">Adó 1% szervezetek elemzése</a></li>
+        </ul>
+      </aside>
+      <div class="left">
+        <img src="profile2.png" alt="Juhász Balázs" />
+      </div>
+      <div class="right">
+        <h1>Juhász Balázs</h1>
+        <p>
+          Kvantitatív kutató vagyok, jelenleg egy hedge fundnál dolgozom.
+          Alkalmazott matematikát tanultam az
+          <a href="https://www.elte.hu/" target="_blank">Eötvös Loránd Tudományegyetemen</a>.
+        </p>
+        <p>
+          Szeretek programozós projekteken dolgozni, vizualizálni, klaszterezni, vagy más olyan
+          projektet csinálni, ahol valamilyen matekos dolgot használhatok.
+        </p>
+        <p>
+          Szabadidőmben kerékpározással, boulderezéssel, olvasással és utazással töltöm az időmet.
+        </p>
+        <p>
+          Bátran keress meg: <a href="mailto:juhaszb23@gmail.com">juhaszb23@gmail.com</a>
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/balazsjuhasz94" target="_blank" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/bal%C3%A1zs-juh%C3%A1sz-06897a14a/" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:juhaszb23@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
